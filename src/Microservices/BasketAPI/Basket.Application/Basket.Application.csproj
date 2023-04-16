@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Gateways\Aggregators\Web.HttpAggregator.Abstraction\Web.HttpAggregator.Abstraction.csproj" />
     <ProjectReference Include="..\Basket.Abstraction\Basket.Abstraction.csproj" />
   </ItemGroup>
 
