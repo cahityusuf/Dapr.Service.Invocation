@@ -12,6 +12,7 @@ namespace Web.HttpAggregator.Application.Services
 
         public async Task<Result<BasketDto>> CreateAsync(BasketDto basket)
         {
+
             var request = new HttpRequestMessage(HttpMethod.Post, "api/v1/basket")
             {
                 Content = JsonContent.Create(basket)
@@ -20,6 +21,7 @@ namespace Web.HttpAggregator.Application.Services
             var httpClient = DaprClient.CreateInvokeHttpClient("basket-api");
 
             var response = await httpClient.SendAsync(request);
+
 
             if (response.IsSuccessStatusCode)
             {

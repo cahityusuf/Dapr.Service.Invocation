@@ -21,7 +21,7 @@ public class BasketController : ControllerBase
     [HttpPost]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     [ProducesResponseType(typeof(BasketDto), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult> UpdateAllBasketAsync(
+    public async Task<ActionResult> UpdateBasketAsync(
         [FromBody] BasketDto basket)
     {
         return Ok(await _basket.CreateAsync(basket));

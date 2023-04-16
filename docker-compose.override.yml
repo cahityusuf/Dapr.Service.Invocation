@@ -23,11 +23,9 @@ services:
     command: ["./daprd",
       "-app-id", "basket-api",
       "-app-port", "80",
-      #"-components-path", "/components",
       "-config", "/configuration/config.yaml"
       ]
     volumes:
-      #- "./dapr/components/:/components"
       - "./dapr/configuration/:/configuration"
 
   web-httpaggregator-api:
@@ -45,11 +43,9 @@ services:
     command: ["./daprd",
       "-app-id", "web-httpaggregator-api",
       "-app-port", "80",
-      #"-components-path", "/components",
       "-config", "/configuration/config.yaml"
       ]
     volumes:
-      #- "./dapr/components/:/components"
       - "./dapr/configuration/:/configuration"
 
   dapr-placement:
