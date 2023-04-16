@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+
+  zipkin:
+    image: openzipkin/zipkin-slim:latest
+
+  dapr-placement:
+    image: "daprio/dapr:1.9.4"
+
+  basket-api:
+    image: cahityusuf/basketapi
+    build:
+      context: .
+      dockerfile: src/Microservices/BasketAPI/Basket.API/Dockerfile
+
+  basket-api-dapr:
+    image: "daprio/daprd:1.9.4"
+    network_mode: "service:basket-api"
+    depends_on:
+      - basket-api
+
+  web-httpaggregator-api:
+    image: cahityusuf/webhttpaggregatorapi
+    build:
+      context: .
+      dockerfile: src/Gateways/Aggregators/Web.HttpAggregator.Api/Dockerfile
+
+  web-httpaggregator-api-dapr:
+    image: "daprio/daprd:1.9.4"
+    network_mode: "service:web-httpaggregator-api"
+    depends_on:
+      - web-httpaggregator-api
